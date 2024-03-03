@@ -1,0 +1,8 @@
+---
+const {dividerInfo} = Astro.props
+---
+<span class="flex items-center">
+  <span class="h-px flex-1 bg-black"></span>
+  {dividerInfo.context !== '' && <span class="shrink-0 px-6">{dividerInfo.context}</span>}
+  <span class="h-px flex-1 bg-black"></span>
+</span>

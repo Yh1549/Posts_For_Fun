@@ -1,0 +1,29 @@
+---
+// Component Imports
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+const {pageInfo} = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageInfo.title}</title>
+	</head>
+
+	<body>
+    <div class="flex h-60 min-h-screen flex-col">
+      <Header></Header>
+      <main class="h-96 flex-1 bg-blue-50 p-4">	
+        	<slot></slot>
+      </main>
+      <Footer></Footer>
+    </div>
+	</body>
+</html>
