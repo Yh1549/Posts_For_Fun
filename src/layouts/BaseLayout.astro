@@ -17,10 +17,10 @@ const {pageInfo} = Astro.props;
 		<title>{pageInfo.title}</title>
 	</head>
 
-	<body>
-    <div class="flex h-60 min-h-screen flex-col">
+	<body class="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
+    <div class="w-4/6 mx-auto flex h-60 min-h-screen flex-col">
       <Header></Header>
-      <main class="h-96 flex-1 bg-blue-50 p-4">	
+      <main class="h-96 flex-1">	
         	<slot></slot>
       </main>
       <Footer></Footer>
