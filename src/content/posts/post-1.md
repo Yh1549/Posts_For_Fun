@@ -1,11 +1,10 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: "My First Blog Post"
-pubDate: 2022-07-01
+date: "2022-07-08"
 description: "This is the first post of my new Astro blog."
-author: "Astro Learner"
+author: "Astro"
 image:
-  url: "https://docs.astro.build/assets/full-logo-light.png"
+  url: "../../assets/car.jpg"
   alt: "The full Astro logo."
 tags: ["astro", "blogging", "learning in public"]
 ---
@@ -27,3 +26,7 @@ Welcome to my _new blog_ about learning Astro! Here, I will share my learning jo
 ## What's next
 
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+
+```javascript
+let x = java;
+```

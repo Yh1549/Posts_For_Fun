@@ -8,22 +8,26 @@ import Header from '../components/Header.astro';
 const {pageInfo} = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="font-custom">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageInfo.title}</title>
+		<style>
+      @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+    </style>
 	</head>
-
-	<body class="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
-    <div class="w-4/6 mx-auto flex h-60 min-h-screen flex-col">
+	<body class="bg-gray-100 text-black antialiased dark:bg-gray-950 dark:text-white">
+    <div class="md:w-4/6 w-full mx-auto flex min-h-screen flex-col">
       <Header></Header>
-      <main class="h-96 flex-1">	
+      <main class=" flex-1">	
         	<slot></slot>
       </main>
       <Footer></Footer>
     </div>
 	</body>
 </html>
+<script is:inline src="./assets/vendor/preline/preline.js"></script>
+<script src="../script/darkMode.js"></script>

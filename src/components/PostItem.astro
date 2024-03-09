@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import Divider from "./Divider.astro";
+const { post:{data:{image, title, url, description}} } = Astro.props;
+---
+<Divider dividerInfo={{context:''}}></Divider>
+
+<article class="flex w-full h-full my-8">
+  <div class=" basis-56 block pr-4">
+    {
+      image ? <Image class="h-32 aspect-square object-cover rounded-lg" src={image.url} alt={image.alt} ></Ima> : <div class="w-full h-32 rounded-lg bg-slate-600"></div>
+    }
+  </div>
+  <div class=" flex flex-col justify-between">
+    <div>
+      <h2 class="text-xl font-bold">{title}</h2>
+      <span class="text-sm">Badge</span>
+    </div>
+    <p class="text-sm">{description}</p>
+    <a href={url}>read more --></a>
+  </div>
+</article>

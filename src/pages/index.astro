@@ -1,14 +1,19 @@
 ---
-import Divider from '../components/Divider.astro';
+import { getCollection } from "astro:content";
+import PostItem from '../components/PostItem.astro';
+import Welcome from "../components/Welcome.astro";
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { ITEMS_PER_PAGE } from "../script/const.js";
+import { sortPostByDate } from "../script/function.js";
+
 const pageInfo = {
 	title:"Home Page",
 }
+
+const recentPosts = sortPostByDate(await getCollection("posts"));
 ---
 <BaseLayout pageInfo={pageInfo}>
-	<h1 class="text-2xl text-red-500">Test</h1>
-	<Divider dividerInfo={{context: ''}}></Divider>
-	<p>intro</p>
-	<Divider dividerInfo={{ context: '123'}}></Divider>
-	<p>recent Blog</p>
+	<Welcome></Welcome>
+	<h2>Latest Posts</h2>
+	{recentPosts.slice(0, ITEMS_PER_PAGE).map((post) => <PostItem post={post}/>)}
 </BaseLayout>

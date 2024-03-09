@@ -1,8 +1,8 @@
 ---
-import Navigation from './Navigation.astro'
-
+import DarkModeSwitch from "./DarkModeSwitch.astro"
+import Navigation from "./Navigation.astro"
 ---
-
-<header class=" p-4">
-  <Navigation></Navigation>
+<header class="flex flex-wrap sm:justify-between sm:flex-nowrap z-50 w-full text-sm py-4 dark:bg-gray-950">
+   <Navigation></Navigation>
+   <DarkModeSwitch></DarkModeSwitch>
 </header>
