@@ -11,10 +11,7 @@ const { pageInfo } = Astro.props;
 
 <html lang="en" class="font-custom">
   <head>
-    <script is:inline></script>
     <script>
-      import { themeChange } from "theme-change";
-      themeChange();
       // init themeController for All Page
       import { themeInit } from "../script/themeController";
       themeInit();
