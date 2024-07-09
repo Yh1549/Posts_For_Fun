@@ -11,15 +11,7 @@ const { pageInfo } = Astro.props;
 
 <html lang="en" class="font-custom">
   <head>
-    <script is:inline>
-      if (localStorage.getItem("theme") === null) {
-        document.documentElement.setAttribute("data-theme", "retro");
-      } else
-        document.documentElement.setAttribute(
-          "data-theme",
-          localStorage.getItem("theme")
-        );
-    </script>
+    <script is:inline></script>
     <script>
       import { themeChange } from "theme-change";
       themeChange();
