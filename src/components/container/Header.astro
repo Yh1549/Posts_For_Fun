@@ -2,7 +2,12 @@
 import Navigation from "../Navigation.astro"
 import ThemeController from "../ThemeController.astro"
 ---
-<header class="">
-   <Navigation></Navigation>
-   <ThemeController></ThemeController>
+<header class="navbar px-4">
+   <div class="hidden md:block md:flex-1"><a href="/" class="btn bg-primary">YH1549</a></div>
+   <div class="flex-1">
+      <Navigation></Navigation>
+   </div>
+   <div class="flex-none">
+      <ThemeController></ThemeController>
+   </div>
 </header>
