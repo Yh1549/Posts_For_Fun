@@ -1,11 +1,11 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import PostItem from '../components/PostItem.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { ITEMS_PER_PAGE } from "../script/const.js";
 import { sortPostByDate } from "../script/function.js";
-const fields = await Astro.glob('../content/field/index.md')
 
+const indexFields = await getEntry('field', "index")
 
 const pageInfo = {
 	title:"Home Page",
@@ -14,10 +14,9 @@ const pageInfo = {
 const recentPosts = sortPostByDate(await getCollection("posts"));
 ---
 <BaseLayout pageInfo={pageInfo}>
-	{fields}
 	<section class="min-h-10">
-		<h1 class="md:text-[70px] md:py-4 text-red-500 font-extrabold">早安你好</h1>
-		<p class="text-primary">歡迎光臨歡迎光臨歡迎光臨歡迎光臨<br/>歡迎光臨歡迎光臨歡迎光臨</p>
+		<h1 class="md:text-[70px] md:py-4 text-red-500 font-extrabold">{indexFields.data.title}</h1>
+		<p class="text-primary">{indexFields.data.intro}</p>
 	</section>
 	<h2>Latest Posts</h2>
 	{recentPosts.slice(0, ITEMS_PER_PAGE).map((post) => <PostItem post={post}/>)}

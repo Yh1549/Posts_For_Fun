@@ -1,9 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import Divider from "./Divider.astro";
 const { post:{data:{image, title, url, description}} } = Astro.props;
 ---
-<Divider dividerInfo={{context:''}}></Divider>
+<!-- <Divider dividerInfo={{context:''}}></Divider> -->
 
 <article class="flex w-full h-full my-8">
   <div class=" basis-56 block pr-4">
@@ -20,3 +19,4 @@ const { post:{data:{image, title, url, description}} } = Astro.props;
     <a href={url}>read more --></a>
   </div>
 </article>
+<div class="divider divider-primary"></div>
