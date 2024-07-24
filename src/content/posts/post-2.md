@@ -6,7 +6,7 @@ description: "After learning some Astro, I couldn't stop!"
 image:
   url: "../../assets/car.jpg"
   alt: "Thumbnail of Astro arcs."
-date: "2022-07-20"
+pubDate: 2022-07-20
 tags: ["astro", "blogging", "learning in public", "successes"]
 ---
 

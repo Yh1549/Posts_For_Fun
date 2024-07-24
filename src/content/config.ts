@@ -24,7 +24,7 @@ const postsCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      date: z.string(),
+      pubDate: z.date(),
       description: z.string(),
       author: z.string(),
       image: z

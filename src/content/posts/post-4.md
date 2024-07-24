@@ -3,7 +3,10 @@ layout: ../../layouts/MarkdownPostLayout.astro
 title: My fourth Blog Post
 author: Astro Learner
 description: "After lrewqrewqrewqstop!"
-date: "2022-07-10"
+pubDate: 2022-07-10
+image:
+  url: "../../assets/car.jpg"
+  alt: "The full Astro logo."
 tags: ["astro", "blogging", "learning in public", "successes"]
 ---
 
