@@ -1,7 +1,8 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: My third Blog Post
-author: Astro Learner
+author: "Peter"
+featured: true
 description: "After learning some Astro, I coudwdwdwdwdw"
 pubDate: 2022-07-10
 image:

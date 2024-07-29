@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import PostItem from "../../components/PostItem.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const pageInfo = {
+  title: "Blog",
+};
+// get all posts
+const allPosts = await getCollection("posts");
+
+// filter posts
+const filterPosts = await getCollection("posts", (post) => {
+  return post.data.author !== "Astro";
+});
+---
+
+<BaseLayout pageInfo={pageInfo}>
+  <h1>All Posts</h1>
+  <p>every posts in this site</p>
+  <ul class="col-span-3">
+    {
+      allPosts.map((allPosts) => (
+        <PostItem url={allPosts.slug} post={allPosts} />
+      ))
+    }
+  </ul>
+</BaseLayout>

@@ -1,4 +1,4 @@
 ---
-title: "My First Blog Post"
-intro: "hello my friend welcome to this site"
+title: "因為會忘"
+intro: "就是因為很多東西會忘 所以才需要記下來"
 ---

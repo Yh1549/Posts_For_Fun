@@ -1,7 +1,8 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
 title: My fourth Blog Post
-author: Astro Learner
+author: "Peter"
+featured: false
 description: "After lrewqrewqrewqstop!"
 pubDate: 2022-07-10
 image:

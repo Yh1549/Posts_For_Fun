@@ -1,28 +1,64 @@
 ---
+import { ITEMS_PER_PAGE } from "utils/const.js";
+import { sortPostByDate } from "utils/function.js";
 import { getCollection, getEntry } from "astro:content";
 import PostItem from "../components/PostItem.astro";
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { ITEMS_PER_PAGE } from "../script/const.js";
-import { sortPostByDate } from "../script/function.js";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const indexFields = await getEntry('field', "index")
+const indexFields = await getEntry("field", "index");
 
 const pageInfo = {
-	title:"Home Page",
-}
+  title: "Home Page",
+};
 
-const recentPosts = sortPostByDate(await getCollection("posts"));
+const sortedPosts = sortPostByDate(await getCollection("posts"));
+
+const featuredPosts = sortedPosts.filter((post) => post.data.featured);
+
+const recentPosts = sortedPosts.filter((post) => !post.data.featured);
 ---
-<BaseLayout pageInfo={pageInfo}>
-	<section class="min-h-10">
-		<h1 class="md:text-[50px] md:py-4 text-primary font-extrabold text-center">{indexFields.data.title}</h1>
-		<p>{indexFields.data.intro}</p>
-	</section>
-	<!-- <h2>Latest Posts</h2> -->
-	<div class="w-full md:w-3/4 mx-auto">
-	{recentPosts.slice(0, ITEMS_PER_PAGE).map((post) => 
-		<PostItem url={post.slug} post={post}/>
-	)}
-	</div>
-</BaseLayout>
 
+<BaseLayout pageInfo={pageInfo}>
+  <div class="divider"></div>
+  <section class="min-h-10">
+    <h1 class="md:text-3xl text-primary font-extrabold">
+      {indexFields.data.title}
+    </h1>
+    <p>{indexFields.data.intro}</p>
+  </section>
+  <div class="divider"></div>
+  <!-- <h2>Latest Posts</h2> -->
+  {
+    featuredPosts.length > 0 && (
+      <section id="featured" class="">
+        <h2>Featured</h2>
+        <ul>
+          {featuredPosts.slice(0, ITEMS_PER_PAGE).map((post) => (
+            <PostItem url={post.slug} post={post} />
+          ))}
+        </ul>
+        {recentPosts.length > 0 && <div class="divider" />}
+      </section>
+    )
+  }
+  {
+    recentPosts.length > 0 && (
+      <section id="featured" class="">
+        <h2>Recent Posts</h2>
+        <ul>
+          {recentPosts.slice(0, ITEMS_PER_PAGE).map((post) => (
+            <PostItem url={post.slug} post={post} />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+  <!-- <h1>Recent Posts</h1>
+  <div class="w-full mx-auto">
+    {
+      recentPosts
+        .slice(0, ITEMS_PER_PAGE)
+        .map((post) => <PostItem url={post.slug} post={post} />)
+    }
+  </div> -->
+</BaseLayout>

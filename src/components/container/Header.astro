@@ -1,15 +1,13 @@
 ---
-import Navigation from "../Navigation.astro"
-import ThemeController from "../ThemeController.astro"
+import { Icon } from "astro-icon/components";
+import Nav from "../Nav.astro";
+import ThemeController from "../ThemeController.astro";
 ---
-<header class="navbar p-4">
-   <div class="hidden md:block md:flex-1">
-      <a href="/" class="btn bg-primary">YH1549</a>
-   </div>
-   <div class="flex-1">
-      <Navigation></Navigation>
-   </div>
-   <div class="flex-none">
-      <ThemeController></ThemeController>
-   </div>
+
+<header class="flex p-2 justify-between bg-base-100">
+  <a href="/" class="">
+    <Icon name="CuteCat" width={60} height={60} />
+  </a>
+  <Nav />
+  <ThemeController />
 </header>

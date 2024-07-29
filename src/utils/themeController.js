@@ -33,7 +33,7 @@ class ThemeControllerDetail {
     localStorage.setItem(ThemeController.STORAGE_KEY, this.theme);
     document.documentElement.setAttribute(
       ThemeController.DATA_ATTR,
-      this.theme
+      this.theme,
     );
     this.addBtnActive();
   }
@@ -57,7 +57,7 @@ export const themeInit = () => {
   if (initTheme === null) {
     document.documentElement.setAttribute(
       ThemeController.DATA_ATTR,
-      DEFAULT_THEME
+      DEFAULT_THEME,
     );
     initTheme = DEFAULT_THEME;
   } else
@@ -70,7 +70,7 @@ export const themeInit = () => {
       themeControllerDetail.addBtnActive();
     }
     el.addEventListener("click", (e) =>
-      themeChange(themeControllerDetail, themeController)
+      themeChange(themeControllerDetail, themeController),
     );
   });
 };
