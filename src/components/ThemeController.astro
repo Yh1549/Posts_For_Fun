@@ -1,3 +1,8 @@
+---
+import { DEFAULT_THEME, THEMES } from "@data/const";
+const themes = THEMES;
+---
+
 <div class="dropdown dropdown-end">
   <div tabindex="0" role="button" class="btn m-1">
     Theme
@@ -17,42 +22,23 @@
   >
     <li>
       <button
-        data-theme="retro"
+        data-theme={DEFAULT_THEME}
         data-active="ACTIVE"
         class="btn btn-sm btn-block btn-ghost justify-start">Default</button
       >
-      <li>
+    </li>
+    {
+      themes.map((item) => (
         <li>
           <button
-            data-theme="dark"
+            data-theme={item}
             data-active="ACTIVE"
-            class="btn btn-sm btn-block btn-ghost justify-start">Dark</button
+            class="btn btn-sm btn-block btn-ghost justify-start"
           >
-          <li>
-            <button
-              data-theme="cyberpunk"
-              data-active="ACTIVE"
-              class="btn btn-sm btn-block btn-ghost justify-start"
-              >Cyberpunk</button
-            >
-          </li>
-          <li>
-            <button
-              data-theme="valentine"
-              data-active="ACTIVE"
-              class="btn btn-sm btn-block btn-ghost justify-start"
-              >Valentine</button
-            >
-          </li>
-          <li>
-            <button
-              data-theme="aqua"
-              data-active="ACTIVE"
-              class="btn btn-sm btn-block btn-ghost justify-start">Aqua</button
-            >
-          </li>
+            {item}
+          </button>
         </li>
-      </li>
-    </li>
+      ))
+    }
   </ul>
 </div>

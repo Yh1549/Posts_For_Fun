@@ -24,7 +24,7 @@ const featuredPosts = sortedPosts.filter((post) => post.data.featured);
         <h2>Featured</h2>
         <ul>
           {featuredPosts.slice(0, ITEMS_PER_PAGE).map(({ data, slug }) => (
-            <PostItem href={`${slug}`} post={data} />
+            <PostItem href={`/posts/${slug}`} post={data} />
           ))}
         </ul>
       </section>
