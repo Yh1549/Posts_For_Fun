@@ -1,4 +1,4 @@
-import { DEFAULT_THEME } from "./const";
+import { DEFAULT_THEME } from "../data/const";
 
 class ThemeController {
   static STORAGE_KEY = "theme";

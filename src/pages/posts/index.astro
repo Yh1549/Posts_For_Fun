@@ -1,26 +1,23 @@
 ---
 import { getCollection } from "astro:content";
+import PageHeader from "components/container/PageHeader.astro";
+import { sortPostByDate } from "utils/function.js";
 import PostItem from "../../components/PostItem.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-const pageInfo = {
-  title: "Blog",
-};
-// get all posts
-const allPosts = await getCollection("posts");
 
-// filter posts
-const filterPosts = await getCollection("posts", (post) => {
-  return post.data.author !== "Astro";
-});
+const pageInfo = {
+  title: "Posts",
+};
+
+const sortedPosts = sortPostByDate(await getCollection("posts"));
 ---
 
 <BaseLayout pageInfo={pageInfo}>
-  <h1>All Posts</h1>
-  <p>every posts in this site</p>
+  <PageHeader title="Posts" intro="全部的post" />
   <ul class="col-span-3">
     {
-      allPosts.map((allPosts) => (
-        <PostItem url={allPosts.slug} post={allPosts} />
+      sortedPosts.map(({ data, slug }) => (
+        <PostItem href={`/posts/${slug}`} post={data} />
       ))
     }
   </ul>

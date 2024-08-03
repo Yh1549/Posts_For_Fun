@@ -1,17 +1,19 @@
 ---
+import PageHeader from "components/container/PageHeader.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const allPosts = await Astro.glob("../../content/posts/*.md");
 const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
-const pageInfo = { title: "Tag Index" };
+const pageInfo = { title: "Tag" };
 ---
 
 <BaseLayout pageInfo={pageInfo}>
-  <div>
+  <PageHeader title="Tags" intro="文章標籤" />
+  <div class="flex gap-2">
     {
       tags.map((tag) => (
-        <p>
-          <a href={`/tags/${tag}`}>{tag}</a>
-        </p>
+        <a class="btn btn-lg btn-accent" href={`/tags/${tag}`}>
+          {tag}
+        </a>
       ))
     }
   </div>

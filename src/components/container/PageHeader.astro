@@ -1,0 +1,13 @@
+---
+const { title, intro } = Astro.props;
+---
+
+<div class="divider"></div>
+<section class="min-h-10">
+  <h1 class="md:text-3xl text-primary font-extrabold">
+    {title}
+  </h1>
+  <p>{intro}</p>
+  <slot />
+</section>
+<div class="divider"></div>

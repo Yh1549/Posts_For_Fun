@@ -1,12 +1,7 @@
 ---
-const {
-  post: {
-    data: { title, description, pubDate, tags },
-  },
-  url,
-} = Astro.props;
+const { post, href } = Astro.props;
 
-const pubDateFormat = pubDate.toString().slice(0, 15);
+const pubDateFormat = post.pubDate.toString().slice(0, 15);
 ---
 
 <!-- <Divider dividerInfo={{context:''}}></Divider> -->
@@ -18,7 +13,7 @@ const pubDateFormat = pubDate.toString().slice(0, 15);
   </div> -->
   <div class="flex flex-col justify-between gap-2">
     <div class="flex justify-between">
-      <a href={`posts/${url}`} class="text-xl font-bold text-accent">{title}</a>
+      <a href={href} class="text-xl font-bold text-accent">{post.title}</a>
       <span class="text-neutral"
         ><svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,16 +24,16 @@ const pubDateFormat = pubDate.toString().slice(0, 15);
           ></path><path
             d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"
           ></path></svg
-        >{pubDateFormat}</span
+        >{post.pubDateFormat}</span
       >
     </div>
     <div class="flex gap-2">
       {
-        tags.map((tag) => (
+        post.tags.map((tag) => (
           <span class="badge badge-secondary badge-outline">{tag}</span>
         ))
       }
     </div>
-    <p class="text-sm">{description}</p>
+    <p class="text-sm">{post.description}</p>
   </div>
 </li>
