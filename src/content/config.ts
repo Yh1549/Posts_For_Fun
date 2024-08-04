@@ -28,12 +28,12 @@ const postsCollection = defineCollection({
       featured: z.boolean(),
       description: z.string(),
       author: z.string(),
-      image: z
-        .object({
-          url: image(),
-          alt: z.string(),
-        })
-        .optional(),
+      // image: z
+      //   .object({
+      //     url: image(),
+      //     alt: z.string(),
+      //   })
+      //   .optional(),
       tags: z.array(z.string()),
     }),
 });

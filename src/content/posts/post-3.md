@@ -1,14 +1,10 @@
 ---
-layout: ../../layouts/MarkdownPostLayout.astro
 title: My third Blog Post
 author: "Peter"
 featured: true
 description: "After learning some Astro, I coudwdwdwdwdw"
 pubDate: 2022-07-10
-image:
-  url: "../../assets/car.jpg"
-  alt: "The full Astro logo."
-tags: ["astro", "blogging", "learning in public", "successes"]
+tags: ["Test"]
 ---
 
 After a successful first week learning Astro, I decided to try some more. I wrote and imported a small component from memory!

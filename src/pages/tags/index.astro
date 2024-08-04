@@ -8,7 +8,7 @@ const pageInfo = { title: "Tag" };
 
 <BaseLayout pageInfo={pageInfo}>
   <PageHeader title="Tags" intro="文章標籤" />
-  <div class="flex gap-2">
+  <div class="flex flex-wrap gap-2">
     {
       tags.map((tag) => (
         <a class="btn btn-lg btn-accent" href={`/tags/${tag}`}>
