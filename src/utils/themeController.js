@@ -51,8 +51,8 @@ const themeChange = (e, themeController) => {
 
 // 頁面主題初始化
 export const themeInit = () => {
-  const initTheme = localStorage.getItem(ThemeController.STORAGE_KEY);
-  const themeController = new ThemeController();
+  let initTheme = localStorage.getItem(ThemeController.STORAGE_KEY);
+  let themeController = new ThemeController();
   // 如果先前沒有設定主題 則取預設主題
   if (initTheme === null) {
     document.documentElement.setAttribute(
